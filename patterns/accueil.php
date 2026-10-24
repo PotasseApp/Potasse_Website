@@ -109,7 +109,7 @@
 <!-- wp:html -->
 <div class="potasse-quiz" data-bonne="A">
 	<p class="potasse-quiz-theme">P1 · Comptes</p>
-	<p class="potasse-quiz-enonce">Une entreprise achète des armoires et des tables de réunion pour 4 800 € HT (chaque meuble coûte plus de 500 € HT), à utiliser plusieurs années. Quel compte débite-t-elle ?</p>
+	<p class="potasse-quiz-enonce">Une entreprise achète des armoires et des tables de réunion pour 4&nbsp;800&nbsp;€ HT (chaque meuble coûte plus de 500&nbsp;€ HT), à utiliser plusieurs années. Quel compte <span class="potasse-insecable">débite-t-elle&nbsp;?</span></p>
 	<div class="potasse-quiz-options">
 		<button type="button" data-lettre="A"><b>A</b> 2184</button>
 		<button type="button" data-lettre="B"><b>B</b> 2182</button>
@@ -117,16 +117,22 @@
 		<button type="button" data-lettre="D"><b>D</b> 6064</button>
 	</div>
 	<div class="potasse-quiz-correction" hidden>
-		<p class="potasse-quiz-verdict" aria-live="polite"></p>
-		<p>Armoires et tables = mobilier : 2184. Le 2182 est le matériel de transport, le 2183 le matériel de bureau et informatique, le 6064 les fournitures administratives (des charges, pas un bien durable).</p>
-		<p class="potasse-quiz-memo">Mnémo : le 2182 roule, le 2184 reste dans le bureau.</p>
+		<p class="potasse-quiz-verdict" aria-live="polite" tabindex="-1"></p>
+		<p>Armoires et tables = mobilier&nbsp;: 2184. Le 2182 est le matériel de transport, le 2183 le matériel de bureau et informatique, le 6064 les fournitures administratives (des charges, pas un bien durable).</p>
+		<p class="potasse-quiz-memo">Mnémo&nbsp;: le 2182 roule, le 2184 reste dans le bureau.</p>
 	</div>
 </div>
 <!-- /wp:html -->
 
 <!-- wp:paragraph {"fontSize":"small"} -->
 <p class="has-small-font-size">Sur Telegram, il y en a trois par jour, et celles que tu rates reviennent le lendemain.</p>
-<!-- /wp:paragraph --></section>
+<!-- /wp:paragraph -->
+
+<!-- wp:buttons -->
+<div class="wp-block-buttons"><!-- wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="https://t.me/excomptable_bot?start=site">Démarrer sur Telegram</a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons --></section>
 <!-- /wp:group -->
 
 <!-- wp:group {"tagName":"section","align":"full","layout":{"type":"constrained"}} -->

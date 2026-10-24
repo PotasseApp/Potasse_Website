@@ -281,6 +281,10 @@ add_action(
 				if (choix !== bonne) { bouton.classList.add('est-faux'); }
 				verdict.textContent = auHasard(choix === bonne ? reactions.juste : reactions.faux);
 				correction.hidden = false;
+				// Le focus va sur la réponse (clavier, lecteur d'écran), et la correction
+				// remonte au-dessus du bouton fixe sur téléphone.
+				verdict.focus({ preventScroll: true });
+				correction.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 			});
 		});
 	});
