@@ -30,6 +30,41 @@ add_action(
 );
 
 /**
+ * La même feuille de style dans l'éditeur, pour voir le vrai rendu
+ * (bandes, cartes, style « Manuscrit », listes, FAQ) pendant qu'on écrit.
+ */
+add_action(
+	'after_setup_theme',
+	function () {
+		add_theme_support( 'editor-styles' );
+		add_editor_style( 'style.css' );
+	}
+);
+
+/**
+ * Ponctuation française : espace insécable avant « ? ! : ; » et à l'intérieur des guillemets « »,
+ * pour qu'un signe ne se retrouve jamais seul en début de ligne sur téléphone.
+ * Ne touche qu'au texte, jamais aux balises ni à leurs attributs.
+ */
+function potasse_ponctuation_francaise( $html ) {
+	if ( ! is_string( $html ) || '' === $html ) {
+		return $html;
+	}
+	$nbsp   = "\u{00A0}";
+	$morceaux = preg_split( '/(<[^>]*>)/u', $html, -1, PREG_SPLIT_DELIM_CAPTURE );
+	foreach ( $morceaux as $i => $morceau ) {
+		if ( '' === $morceau || '<' === $morceau[0] ) {
+			continue;
+		}
+		$morceau = preg_replace( '/[ \x{00A0}\x{202F}]+([?!:;»])/u', $nbsp . '$1', $morceau );
+		$morceau = preg_replace( '/«[ \x{00A0}\x{202F}]+/u', '«' . $nbsp, $morceau );
+		$morceaux[ $i ] = $morceau;
+	}
+	return implode( '', $morceaux );
+}
+add_filter( 'the_content', 'potasse_ponctuation_francaise', 20 );
+
+/**
  * Catégorie « Potasse » pour retrouver les compositions du thème (dossier patterns/).
  */
 add_action(
