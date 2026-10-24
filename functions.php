@@ -198,3 +198,56 @@ add_filter(
 	10,
 	2
 );
+
+/**
+ * Partage et référencement, sans extension.
+ * Titre d'onglet parlant sur l'accueil, description, aperçu pour les partages
+ * (WhatsApp, Discord, réseaux sociaux) et icône du site.
+ */
+const POTASSE_DESCRIPTION = 'Potasse, le bot Telegram qui t\'aide à réviser le BTS Comptabilité et Gestion : réponses à tes questions de cours, QCM trois fois par jour et répétition espacée. Fait par un étudiant, gratuit pendant le rodage.';
+
+add_filter(
+	'document_title_parts',
+	function ( $parts ) {
+		if ( is_front_page() ) {
+			$parts = array( 'title' => __( 'Potasse — le bot Telegram pour réviser le BTS CG', 'potasse' ) );
+		}
+		return $parts;
+	}
+);
+
+add_action(
+	'wp_head',
+	function () {
+		$titre = is_front_page() ? __( 'Potasse — le bot Telegram pour réviser le BTS CG', 'potasse' ) : wp_get_document_title();
+		$url   = is_front_page() ? home_url( '/' ) : get_permalink();
+		$image = get_theme_file_uri( 'assets/images/partage.jpg' );
+
+		$balises = array(
+			array( 'name', 'description', POTASSE_DESCRIPTION ),
+			array( 'property', 'og:type', 'website' ),
+			array( 'property', 'og:locale', 'fr_FR' ),
+			array( 'property', 'og:site_name', 'Potasse' ),
+			array( 'property', 'og:title', $titre ),
+			array( 'property', 'og:description', POTASSE_DESCRIPTION ),
+			array( 'property', 'og:url', $url ),
+			array( 'property', 'og:image', $image ),
+			array( 'property', 'og:image:width', '1200' ),
+			array( 'property', 'og:image:height', '630' ),
+			array( 'property', 'og:image:alt', __( 'Potasse : « Réviser ta compta, c\'est pas marrant. Heureusement, t\'as un bon pote. » et la photo de Joseph à sa fenêtre.', 'potasse' ) ),
+			array( 'name', 'twitter:card', 'summary_large_image' ),
+		);
+		foreach ( $balises as $b ) {
+			printf( '<meta %1$s="%2$s" content="%3$s" />' . "\n", $b[0], esc_attr( $b[1] ), esc_attr( $b[2] ) );
+		}
+
+		// Icône du site (onglet, écran d'accueil du téléphone), sauf si une icône est choisie dans WordPress.
+		if ( ! has_site_icon() ) {
+			printf( '<link rel="icon" href="%s" type="image/svg+xml" />' . "\n", esc_url( get_theme_file_uri( 'assets/images/favicon.svg' ) ) );
+			printf( '<link rel="icon" href="%s" sizes="512x512" type="image/png" />' . "\n", esc_url( get_theme_file_uri( 'assets/images/icone-512.png' ) ) );
+			printf( '<link rel="apple-touch-icon" href="%s" />' . "\n", esc_url( get_theme_file_uri( 'assets/images/icone-180.png' ) ) );
+		}
+		echo '<meta name="theme-color" content="#F5E9D7" />' . "\n";
+	},
+	1
+);

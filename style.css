@@ -4,7 +4,7 @@ Theme URI: https://potasse.app
 Author: Joseph Beurier
 Description: Thème enfant de Twenty Twenty-Five pour le site vitrine de Potasse. Palette Earthy Garden, polices hébergées sur le site, pensé d'abord pour le mobile, aucun appel à un service extérieur.
 Template: twentytwentyfive
-Version: 0.4.3
+Version: 0.5.0
 Requires at least: 6.7
 Tested up to: 6.8
 Requires PHP: 7.4
@@ -316,7 +316,7 @@ ul.is-style-feuille-de-route > li > strong:first-child::before {
 	}
 
 	:is(.wp-block-post-content, .is-root-container) > section.wp-block-group:first-child h1 {
-		font-size: 2.125rem;
+		font-size: 2.5rem;
 	}
 }
 
@@ -425,7 +425,7 @@ ul.is-style-feuille-de-route > li > strong:first-child::before {
 
 .potasse-hero h1 {
 	margin-block: 0.5rem 1rem;
-	font-size: clamp(2.125rem, 1.4rem + 2.2vw, 3.25rem);
+	font-size: clamp(2.5rem, 1.5rem + 3vw, 4rem);
 }
 
 .potasse-hero .has-large-font-size {
@@ -437,6 +437,15 @@ ul.is-style-feuille-de-route > li > strong:first-child::before {
 }
 
 @media (min-width: 782px) {
+	/* Plus de place pour le titre, pour qu'il tienne sur deux lignes. */
+	.potasse-hero > .wp-block-column:first-child {
+		flex-basis: 64% !important;
+	}
+
+	.potasse-hero > .wp-block-column:last-child {
+		flex-basis: 36% !important;
+	}
+
 	.potasse-hero .potasse-photo {
 		max-width: 360px;
 	}
@@ -445,10 +454,32 @@ ul.is-style-feuille-de-route > li > strong:first-child::before {
 /* Écrans peu hauts (portables) : on resserre encore un peu. */
 @media (min-width: 782px) and (max-height: 820px) {
 	.potasse-hero h1 {
-		font-size: clamp(2rem, 1.2rem + 2vw, 2.75rem);
+		font-size: clamp(2.375rem, 1.4rem + 2.4vw, 3.25rem);
+	}
+
+	.potasse-hero .is-style-manuscrit {
+		font-size: 1.25rem;
 	}
 
 	.potasse-hero .potasse-photo {
 		max-width: 320px;
 	}
+}
+
+/* ---------------------------------------------------------------
+   Page 404
+   --------------------------------------------------------------- */
+
+.potasse-404 {
+	padding-block: clamp(3rem, 10vw, 7rem);
+}
+
+.potasse-404 .wp-block-buttons {
+	gap: 0.75rem;
+}
+
+.wp-block-button.is-style-outline > .wp-block-button__link {
+	border: 2px solid var(--wp--preset--color--accent-1);
+	background: transparent;
+	color: var(--wp--preset--color--accent-1);
 }

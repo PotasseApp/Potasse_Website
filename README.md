@@ -51,6 +51,15 @@ Styles de blocs ajoutés par le thème : **Manuscrit** (paragraphes, titres), **
 - **Couleurs, polices, tailles** : `theme.json`.
 - **Bouton fixe et petits styles** : `style.css`.
 
+## Partage et référencement
+
+Gérés par le thème, sans extension (`functions.php`) :
+
+- titre d'onglet de l'accueil : « Potasse — le bot Telegram pour réviser le BTS CG » ;
+- description (`POTASSE_DESCRIPTION`) et balises de partage (aperçu WhatsApp, Discord, réseaux sociaux) avec l'image `assets/images/partage.jpg` (1200 × 630) ;
+- icône du site (pousse) : `favicon.svg`, `icone-512.png`, `icone-180.png`, sauf si une icône est choisie dans WordPress ;
+- page 404 aux couleurs de Potasse (`templates/404.html`).
+
 ## Licences
 
 Thème sous GPL v2 ou ultérieure. Polices sous SIL Open Font License 1.1 (fichiers `LICENSE.txt` dans `assets/fonts/`).
