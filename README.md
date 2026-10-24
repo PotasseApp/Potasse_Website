@@ -22,6 +22,25 @@ Ce dépôt contient **uniquement du code** : aucun texte de page, aucun réglage
 
 Pour récupérer une mise à jour : GitHub Desktop → **Fetch origin**, puis **Pull**.
 
+## Créer les pages avec les compositions
+
+Le thème fournit 4 compositions prêtes (dossier `patterns/`), rangées dans la catégorie **Potasse** :
+
+| Page à créer | Slug (permalien) | Composition |
+| --- | --- | --- |
+| Accueil | `accueil` | Potasse — Page d'accueil |
+| Où sont tes données | `ou-sont-tes-donnees` | Potasse — Où sont tes données |
+| Politique de confidentialité | `confidentialite` | Potasse — Politique de confidentialité |
+| Mentions légales | `mentions-legales` | Potasse — Mentions légales |
+
+1. **Pages → Ajouter** : WordPress propose de partir d'une composition ; choisis celle de la page. Sinon : bouton **+** → onglet **Compositions** → catégorie **Potasse**.
+2. Dans le panneau de droite, vérifie le **slug** du tableau : le pied de page et la FAQ pointent vers ces adresses.
+3. Pour l'accueil, choisis le modèle **Page sans titre** (« Page No Title ») (le titre est déjà dans la composition).
+4. **Réglages → Lecture** : « Une page statique » → Page d'accueil : **Accueil**.
+5. Complète les passages entre crochets [ ] et ajoute la photo et les captures.
+
+Le pied de page du site (signature et liens légaux) vient du thème (`parts/footer.html`).
+
 ## Réglages
 
 - **Lien du bouton** : `POTASSE_BOT_URL` dans `functions.php` (`https://t.me/excomptable_bot?start=site`).

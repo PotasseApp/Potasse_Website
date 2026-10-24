@@ -30,6 +30,19 @@ add_action(
 );
 
 /**
+ * Catégorie « Potasse » pour retrouver les compositions du thème (dossier patterns/).
+ */
+add_action(
+	'init',
+	function () {
+		register_block_pattern_category(
+			'potasse',
+			array( 'label' => __( 'Potasse', 'potasse' ) )
+		);
+	}
+);
+
+/**
  * Style « Manuscrit » (police Caveat) proposé sur les paragraphes et les titres.
  */
 add_action(
