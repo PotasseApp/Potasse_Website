@@ -14,16 +14,20 @@
 <!-- wp:group {"tagName":"section","align":"full","layout":{"type":"constrained"}} -->
 <section class="wp-block-group alignfull"><!-- wp:columns {"verticalAlignment":"center","align":"wide","className":"potasse-hero"} -->
 <div class="wp-block-columns alignwide are-vertically-aligned-center potasse-hero"><!-- wp:column {"verticalAlignment":"center","width":"58%"} -->
-<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:58%"><!-- wp:paragraph {"className":"is-style-manuscrit"} -->
-<p class="is-style-manuscrit">le pote qui te lâche jamais</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:heading {"level":1} -->
-<h1 class="wp-block-heading">Réviser ta compta, c'est pas marrant. Heureusement, t'as un <mark class="potasse-surligne">bon pote</mark>.</h1>
+<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:58%"><!-- wp:heading {"level":1,"className":"potasse-nom"} -->
+<h1 class="wp-block-heading potasse-nom">Potasse</h1>
 <!-- /wp:heading -->
 
+<!-- wp:paragraph {"className":"is-style-manuscrit potasse-sous-nom"} -->
+<p class="is-style-manuscrit potasse-sous-nom">Potasse, construit par un étudiant pour des étudiants 🌱</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"className":"potasse-accroche"} -->
+<p class="potasse-accroche">Réviser ta compta, c'est pas marrant. Heureusement, t'as un <mark class="potasse-surligne">bon pote</mark>.</p>
+<!-- /wp:paragraph -->
+
 <!-- wp:paragraph {"fontSize":"large"} -->
-<p class="has-large-font-size">Potasse répond à tes questions de cours, te quizze trois fois par jour et revient sur ce que tu oublies. Fait par un étudiant en BTS CG, pour les étudiants en BTS CG.</p>
+<p class="has-large-font-size">Il répond à tes questions de cours, te quizze trois fois par jour et revient sur ce que tu oublies. Pour le BTS Comptabilité et Gestion.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:buttons -->
@@ -41,6 +45,40 @@
 <div class="wp-block-column is-vertically-aligned-center" style="flex-basis:42%"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"potasse-photo"} -->
 <figure class="wp-block-image size-full potasse-photo"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/joseph-velux.webp' ) ); ?>" alt="Joseph, le créateur de Potasse, qui sourit à la fenêtre d'un velux au-dessus d'une rivière"/><figcaption class="wp-element-caption">Ma salle de révision : vue sur rivière, zéro amphi.</figcaption></figure>
 <!-- /wp:image --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns --></section>
+<!-- /wp:group -->
+
+<!-- wp:group {"tagName":"section","align":"full","className":"potasse-valeurs-section","layout":{"type":"constrained"}} -->
+<section class="wp-block-group alignfull potasse-valeurs-section"><!-- wp:columns {"align":"wide","className":"potasse-valeurs"} -->
+<div class="wp-block-columns alignwide potasse-valeurs"><!-- wp:column -->
+<div class="wp-block-column"><!-- wp:paragraph {"className":"potasse-tampon"} -->
+<p class="potasse-tampon">fait main</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Bricolé par un étudiant, le soir, entre deux chapitres. Pas de levée de fonds, pas d'équipe marketing : juste quelqu'un qui révise le même BTS que toi.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"><!-- wp:paragraph {"className":"potasse-tampon"} -->
+<p class="potasse-tampon">sobre</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Un site léger : images compressées, polices hébergées ici, aucune vidéo, aucun pisteur. Et bientôt, des serveurs alimentés en énergie renouvelable.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"><!-- wp:paragraph {"className":"potasse-tampon"} -->
+<p class="potasse-tampon">souverain</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Tes données ne sont ni vendues ni utilisées pour entraîner une IA. Potasse déménage en Suisse, chez un hébergeur indépendant. <a href="/ou-sont-tes-donnees/">Où en est le déménagement</a></p>
+<!-- /wp:paragraph --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns --></section>
 <!-- /wp:group -->
@@ -130,7 +168,7 @@
 
 <!-- wp:buttons -->
 <div class="wp-block-buttons"><!-- wp:button -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="https://t.me/excomptable_bot?start=site">Démarrer sur Telegram</a></div>
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="https://t.me/excomptable_bot?start=quiz">Démarrer sur Telegram</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></section>
 <!-- /wp:group -->
