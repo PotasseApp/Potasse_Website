@@ -251,3 +251,41 @@ add_action(
 	},
 	1
 );
+
+/**
+ * Mini QCM jouable de l'accueil : un clic, la correction et la petite blague.
+ * Aucune donnée envoyée nulle part, tout se passe dans la page.
+ */
+add_action(
+	'wp_footer',
+	function () {
+		$js = <<<'JS'
+(function () {
+	var reactions = {
+		juste: ['Bien vu !', 'Carré. Le 2184 te remercie.', 'Exact, tu peux ranger tes armoires.'],
+		faux: ['Raté, mais c\'est comme ça qu\'on retient.', 'Presque ! Elle reviendrait demain sur Telegram.', 'Pas grave : une erreur, c\'est une fiche qui rentre.']
+	};
+	function auHasard(liste) { return liste[Math.floor(Math.random() * liste.length)]; }
+	document.querySelectorAll('.potasse-quiz').forEach(function (quiz) {
+		var bonne = quiz.getAttribute('data-bonne');
+		var boutons = quiz.querySelectorAll('.potasse-quiz-options button');
+		var correction = quiz.querySelector('.potasse-quiz-correction');
+		var verdict = quiz.querySelector('.potasse-quiz-verdict');
+		boutons.forEach(function (bouton) {
+			bouton.addEventListener('click', function () {
+				var choix = bouton.getAttribute('data-lettre');
+				boutons.forEach(function (b) {
+					b.disabled = true;
+					if (b.getAttribute('data-lettre') === bonne) { b.classList.add('est-juste'); }
+				});
+				if (choix !== bonne) { bouton.classList.add('est-faux'); }
+				verdict.textContent = auHasard(choix === bonne ? reactions.juste : reactions.faux);
+				correction.hidden = false;
+			});
+		});
+	});
+})();
+JS;
+		wp_print_inline_script_tag( $js );
+	}
+);

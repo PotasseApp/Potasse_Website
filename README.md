@@ -45,6 +45,10 @@ Styles de blocs ajoutés par le thème : **Manuscrit** (paragraphes, titres), **
 
 **Après une mise à jour de la composition d'accueil**, le contenu déjà enregistré dans la page ne change pas : pour profiter de la nouvelle version, ouvre la page Accueil, sélectionne tous les blocs (Ctrl+A deux fois), supprime-les, puis insère à nouveau la composition « Potasse — Page d'accueil ».
 
+## Mini QCM de l'accueil
+
+La question jouable de la section « Essaie, là, tout de suite » est un bloc HTML de la composition d'accueil, tiré de la banque Questions Potasse (n° 67, compte 2184). Pour la changer : modifier l'énoncé, les 4 boutons, `data-bonne` (lettre juste) et l'explication. Les petites réactions drôles sont dans `functions.php`.
+
 ## Réglages
 
 - **Lien du bouton** : `POTASSE_BOT_URL` dans `functions.php` (`https://t.me/excomptable_bot?start=site`).

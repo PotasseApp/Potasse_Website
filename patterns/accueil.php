@@ -19,7 +19,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"level":1} -->
-<h1 class="wp-block-heading">Réviser ta compta, c'est pas marrant. Heureusement, t'as un bon pote.</h1>
+<h1 class="wp-block-heading">Réviser ta compta, c'est pas marrant. Heureusement, t'as un <mark class="potasse-surligne">bon pote</mark>.</h1>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"fontSize":"large"} -->
@@ -60,6 +60,10 @@
 <h2 class="wp-block-heading">Comment ça marche</h2>
 <!-- /wp:heading -->
 
+<!-- wp:paragraph {"className":"potasse-barre","fontSize":"large"} -->
+<p class="potasse-barre has-large-font-size"><s>Révolutionne tes révisions grâce à l'IA.</s> Tu poses ta question, il te répond. C'est tout.</p>
+<!-- /wp:paragraph -->
+
 <!-- wp:columns {"align":"wide","className":"potasse-etapes"} -->
 <div class="wp-block-columns alignwide potasse-etapes"><!-- wp:column -->
 <div class="wp-block-column"><!-- wp:heading {"level":3} -->
@@ -95,6 +99,38 @@
 
 <!-- wp:group {"tagName":"section","align":"full","backgroundColor":"accent-6","layout":{"type":"constrained"}} -->
 <section class="wp-block-group alignfull has-accent-6-background-color has-background"><!-- wp:heading -->
+<h2 class="wp-block-heading">Essaie, là, tout de suite</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Une vraie question de la banque de Potasse. Clique sur ta réponse.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:html -->
+<div class="potasse-quiz" data-bonne="A">
+	<p class="potasse-quiz-theme">P1 · Comptes</p>
+	<p class="potasse-quiz-enonce">Une entreprise achète des armoires et des tables de réunion pour 4 800 € HT (chaque meuble coûte plus de 500 € HT), à utiliser plusieurs années. Quel compte débite-t-elle ?</p>
+	<div class="potasse-quiz-options">
+		<button type="button" data-lettre="A"><b>A</b> 2184</button>
+		<button type="button" data-lettre="B"><b>B</b> 2182</button>
+		<button type="button" data-lettre="C"><b>C</b> 2183</button>
+		<button type="button" data-lettre="D"><b>D</b> 6064</button>
+	</div>
+	<div class="potasse-quiz-correction" hidden>
+		<p class="potasse-quiz-verdict" aria-live="polite"></p>
+		<p>Armoires et tables = mobilier : 2184. Le 2182 est le matériel de transport, le 2183 le matériel de bureau et informatique, le 6064 les fournitures administratives (des charges, pas un bien durable).</p>
+		<p class="potasse-quiz-memo">Mnémo : le 2182 roule, le 2184 reste dans le bureau.</p>
+	</div>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:paragraph {"fontSize":"small"} -->
+<p class="has-small-font-size">Sur Telegram, il y en a trois par jour, et celles que tu rates reviennent le lendemain.</p>
+<!-- /wp:paragraph --></section>
+<!-- /wp:group -->
+
+<!-- wp:group {"tagName":"section","align":"full","layout":{"type":"constrained"}} -->
+<section class="wp-block-group alignfull"><!-- wp:heading -->
 <h2 class="wp-block-heading">À quoi ça ressemble</h2>
 <!-- /wp:heading -->
 
@@ -119,8 +155,8 @@
 <!-- /wp:columns --></section>
 <!-- /wp:group -->
 
-<!-- wp:group {"tagName":"section","align":"full","layout":{"type":"constrained"}} -->
-<section class="wp-block-group alignfull"><!-- wp:heading -->
+<!-- wp:group {"tagName":"section","align":"full","backgroundColor":"accent-6","layout":{"type":"constrained"}} -->
+<section class="wp-block-group alignfull has-accent-6-background-color has-background"><!-- wp:heading -->
 <h2 class="wp-block-heading">C'est pour toi si…</h2>
 <!-- /wp:heading -->
 
@@ -140,11 +176,15 @@
 <!-- wp:list-item -->
 <li>Tu as 5 minutes, pas 2 heures</li>
 <!-- /wp:list-item --></ul>
-<!-- /wp:list --></section>
+<!-- /wp:list -->
+
+<!-- wp:paragraph {"className":"potasse-postit"} -->
+<p class="potasse-postit">Promis : pas de pub, pas de pisteur, pas de revente de tes données.</p>
+<!-- /wp:paragraph --></section>
 <!-- /wp:group -->
 
-<!-- wp:group {"tagName":"section","align":"full","backgroundColor":"accent-6","layout":{"type":"constrained"}} -->
-<section class="wp-block-group alignfull has-accent-6-background-color has-background"><!-- wp:heading -->
+<!-- wp:group {"tagName":"section","align":"full","layout":{"type":"constrained"}} -->
+<section class="wp-block-group alignfull"><!-- wp:heading -->
 <h2 class="wp-block-heading">Ce qui arrive</h2>
 <!-- /wp:heading -->
 
@@ -167,8 +207,9 @@
 <!-- /wp:list --></section>
 <!-- /wp:group -->
 
-<!-- wp:group {"tagName":"section","align":"full","layout":{"type":"constrained"}} -->
-<section class="wp-block-group alignfull"><!-- wp:heading -->
+<!-- wp:group {"tagName":"section","align":"full","backgroundColor":"accent-6","layout":{"type":"constrained"}} -->
+<section class="wp-block-group alignfull has-accent-6-background-color has-background"><!-- wp:group {"className":"potasse-cahier","layout":{"type":"constrained"}} -->
+<div class="wp-block-group potasse-cahier"><!-- wp:heading -->
 <h2 class="wp-block-heading">Pas une startup. Juste un étudiant.</h2>
 <!-- /wp:heading -->
 
@@ -178,11 +219,16 @@
 
 <!-- wp:paragraph {"className":"is-style-manuscrit"} -->
 <p class="is-style-manuscrit">Je crée Potasse pour qu'on s'en sorte.</p>
-<!-- /wp:paragraph --></section>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"className":"potasse-signature"} -->
+<p class="potasse-signature">Joseph</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group --></section>
 <!-- /wp:group -->
 
-<!-- wp:group {"tagName":"section","align":"full","backgroundColor":"accent-6","layout":{"type":"constrained"}} -->
-<section class="wp-block-group alignfull has-accent-6-background-color has-background"><!-- wp:heading -->
+<!-- wp:group {"tagName":"section","align":"full","layout":{"type":"constrained"}} -->
+<section class="wp-block-group alignfull"><!-- wp:heading -->
 <h2 class="wp-block-heading">Questions fréquentes</h2>
 <!-- /wp:heading -->
 
