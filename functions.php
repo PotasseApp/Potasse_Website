@@ -128,7 +128,7 @@ add_action(
 	function () {
 		$url = apply_filters( 'potasse_bot_url', POTASSE_BOT_URL );
 		printf(
-			'<div class="potasse-cta-fixe"><a href="%1$s" rel="noopener">%2$s</a></div>',
+			'<div class="potasse-cta-fixe est-masque"><a href="%1$s" rel="noopener">%2$s</a></div><noscript><style>.potasse-cta-fixe.est-masque{transform:none;opacity:1;pointer-events:auto}</style></noscript>',
 			esc_url( $url ),
 			esc_html__( 'Démarrer sur Telegram', 'potasse' )
 		);
@@ -140,7 +140,8 @@ add_action(
 	var cta = document.querySelector('.potasse-cta-fixe');
 	if (!cta) { return; }
 	var cibles = document.querySelectorAll('.wp-block-post-content a.wp-block-button__link[href*="t.me/"]');
-	if (!cibles.length) { return; }
+	// Le bouton part caché (pas de flash à l'arrivée) ; sans autre bouton dans la page, on le montre tout de suite.
+	if (!cibles.length) { cta.classList.remove('est-masque'); return; }
 	var attente = false;
 	function miseAJour() {
 		attente = false;
