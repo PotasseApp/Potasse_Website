@@ -12,11 +12,7 @@
  */
 ?>
 <!-- wp:group {"layout":{"type":"constrained"}} -->
-<div class="wp-block-group"><!-- wp:heading {"level":1} -->
-<h1 class="wp-block-heading">Où sont tes données</h1>
-<!-- /wp:heading -->
-
-<!-- wp:paragraph {"fontSize":"large"} -->
+<div class="wp-block-group"><!-- wp:paragraph {"fontSize":"large"} -->
 <p class="has-large-font-size">Potasse garde le strict minimum, ne vend rien, et n'utilise jamais tes messages pour entraîner une IA. Voici exactement ce qui se passe, sans jargon.</p>
 <!-- /wp:paragraph -->
 

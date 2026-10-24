@@ -12,11 +12,7 @@
  */
 ?>
 <!-- wp:group {"layout":{"type":"constrained"}} -->
-<div class="wp-block-group"><!-- wp:heading {"level":1} -->
-<h1 class="wp-block-heading">Politique de confidentialité</h1>
-<!-- /wp:heading -->
-
-<!-- wp:heading -->
+<div class="wp-block-group"><!-- wp:heading -->
 <h2 class="wp-block-heading">Responsable du traitement</h2>
 <!-- /wp:heading -->
 
