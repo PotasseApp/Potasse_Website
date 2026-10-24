@@ -63,11 +63,11 @@
 
 <!-- wp:column -->
 <div class="wp-block-column"><!-- wp:paragraph {"className":"potasse-tampon"} -->
-<p class="potasse-tampon">sobre</p>
+<p class="potasse-tampon">écolo</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
-<p>Un site léger : images compressées, polices hébergées ici, aucune vidéo, aucun pisteur. Et bientôt, des serveurs alimentés en énergie renouvelable.</p>
+<p>Un site léger : images compressées, aucune vidéo, aucun pisteur. Bientôt, Potasse tournera dans un datacenter suisse alimenté en énergie renouvelable, dont la chaleur des serveurs sert à chauffer des logements.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:column -->
 
@@ -246,7 +246,7 @@
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li><strong>Tes données en Suisse</strong><br>Potasse déménage chez un hébergeur suisse alimenté en énergie renouvelable.</li>
+<li><strong>Tes données en Suisse</strong><br>Potasse déménage chez Infomaniak, à Genève : énergie renouvelable, serveurs qui chauffent des logements, et une IA hébergée sur place.</li>
 <!-- /wp:list-item --></ul>
 <!-- /wp:list --></section>
 <!-- /wp:group -->
@@ -297,6 +297,12 @@
 <!-- wp:details -->
 <details class="wp-block-details"><summary>C'est pas juste ChatGPT ?</summary><!-- wp:paragraph -->
 <p>Non. Potasse répond à partir de fiches de cours vérifiées, il te relance tout seul plusieurs fois par jour, et derrière il y a un humain qui lit tes retours.</p>
+<!-- /wp:paragraph --></details>
+<!-- /wp:details -->
+
+<!-- wp:details -->
+<details class="wp-block-details"><summary>Quelle IA fait tourner Potasse ?</summary><!-- wp:paragraph -->
+<p>Aujourd'hui, les réponses sont rédigées par Mistral AI, une entreprise française, à partir de mes fiches. Bientôt, ce seront des modèles open source hébergés en Suisse chez Infomaniak, dans un datacenter alimenté en énergie renouvelable dont la chaleur chauffe des logements à Genève. Dans tous les cas, Potasse n'utilise jamais tes messages pour entraîner une IA.</p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details -->
 
