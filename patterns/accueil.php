@@ -19,7 +19,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"className":"is-style-manuscrit potasse-sous-nom"} -->
-<p class="is-style-manuscrit potasse-sous-nom">Potasse, construit par un étudiant pour des étudiants 🌱</p>
+<p class="is-style-manuscrit potasse-sous-nom">Potasse, construit par un étudiant pour des étudiants 🌱</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"potasse-accroche"} -->
