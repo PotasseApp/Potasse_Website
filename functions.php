@@ -133,22 +133,31 @@ add_action(
 			esc_html__( 'Démarrer sur Telegram', 'potasse' )
 		);
 
-		// Masque le bouton fixe tant qu'un bouton vers le bot est déjà visible dans la page
-		// (par exemple celui du haut de l'accueil), pour ne jamais en afficher deux à la fois.
+		// Masque le bouton fixe tant qu'un bouton vers le bot est déjà visible à l'écran
+		// (celui du haut de l'accueil ou l'appel final), dès le chargement, pour ne jamais en afficher deux.
 		$js = <<<'JS'
 (function () {
 	var cta = document.querySelector('.potasse-cta-fixe');
-	if (!cta || !('IntersectionObserver' in window)) { return; }
+	if (!cta) { return; }
 	var cibles = document.querySelectorAll('.wp-block-post-content a.wp-block-button__link[href*="t.me/"]');
 	if (!cibles.length) { return; }
-	var visibles = new Set();
-	var observateur = new IntersectionObserver(function (entrees) {
-		entrees.forEach(function (e) {
-			if (e.isIntersecting) { visibles.add(e.target); } else { visibles.delete(e.target); }
+	var attente = false;
+	function miseAJour() {
+		attente = false;
+		var visible = false;
+		cibles.forEach(function (c) {
+			var r = c.getBoundingClientRect();
+			if (r.bottom > 0 && r.top < window.innerHeight) { visible = true; }
 		});
-		cta.classList.toggle('est-masque', visibles.size > 0);
-	});
-	cibles.forEach(function (c) { observateur.observe(c); });
+		cta.classList.toggle('est-masque', visible);
+	}
+	function demander() {
+		if (!attente) { attente = true; window.requestAnimationFrame(miseAJour); }
+	}
+	miseAJour();
+	window.addEventListener('scroll', demander, { passive: true });
+	window.addEventListener('resize', demander);
+	window.addEventListener('load', demander);
 })();
 JS;
 		wp_print_inline_script_tag( $js );

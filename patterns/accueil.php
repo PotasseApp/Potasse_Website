@@ -39,7 +39,7 @@
 
 <!-- wp:column {"verticalAlignment":"center","width":"42%"} -->
 <div class="wp-block-column is-vertically-aligned-center" style="flex-basis:42%"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"potasse-photo"} -->
-<figure class="wp-block-image size-full potasse-photo"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/joseph-velux.webp' ) ); ?>" alt="Joseph, le créateur de Potasse, qui sourit à la fenêtre d'un velux au-dessus d'une rivière"/></figure>
+<figure class="wp-block-image size-full potasse-photo"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/joseph-velux.webp' ) ); ?>" alt="Joseph, le créateur de Potasse, qui sourit à la fenêtre d'un velux au-dessus d'une rivière"/><figcaption class="wp-element-caption">Ma salle de révision : vue sur rivière, zéro amphi.</figcaption></figure>
 <!-- /wp:image --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns --></section>

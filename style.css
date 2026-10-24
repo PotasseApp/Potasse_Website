@@ -4,7 +4,7 @@ Theme URI: https://potasse.app
 Author: Joseph Beurier
 Description: Thème enfant de Twenty Twenty-Five pour le site vitrine de Potasse. Palette Earthy Garden, polices hébergées sur le site, pensé d'abord pour le mobile, aucun appel à un service extérieur.
 Template: twentytwentyfive
-Version: 0.4.0
+Version: 0.4.1
 Requires at least: 6.7
 Tested up to: 6.8
 Requires PHP: 7.4
@@ -328,17 +328,42 @@ ul.is-style-feuille-de-route > li > strong:first-child::before {
 	gap: clamp(1.5rem, 4vw, 3.5rem) !important;
 }
 
+.potasse-photo {
+	max-width: 440px;
+	margin-inline: auto;
+	padding: 0.875rem 0.875rem 0;
+	background: var(--wp--preset--color--accent-5);
+	border: 1px solid var(--wp--preset--color--accent-6);
+	box-shadow: 0 8px 24px rgba(28, 28, 28, 0.12);
+	transform: rotate(-2deg);
+}
+
 .potasse-photo img {
+	display: block;
 	width: 100%;
 	height: auto;
-	border-radius: 24px;
+	aspect-ratio: 1;
+	object-fit: cover;
+	border-radius: 2px;
+}
+
+/* La légende façon polaroïd, écrite à la main. */
+.potasse-photo .wp-element-caption {
+	margin: 0;
+	padding: 0.75rem 0.25rem 1rem;
+	text-align: center;
+	font-family: var(--wp--preset--font-family--caveat);
+	font-size: 1.5rem;
+	line-height: 1.2;
+	color: var(--wp--preset--color--contrast);
 }
 
 @media (max-width: 781px) {
-	/* Sur téléphone, la photo passe sous le texte, en plus petit. */
-	.potasse-photo img {
-		max-height: 320px;
-		object-fit: cover;
+	/* Sur téléphone, le polaroïd passe sous le texte, un peu plus petit et moins penché. */
+	.potasse-photo {
+		max-width: 300px;
+		margin-top: 1rem;
+		transform: rotate(-1.5deg);
 	}
 }
 
