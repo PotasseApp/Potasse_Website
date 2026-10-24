@@ -6,13 +6,15 @@
  * Block Types: core/post-content
  * Post Types: page
  * Viewport width: 400
- * Description: Les 9 sections de la page d'accueil en bandes pleine largeur (crème et beige en alternance, vert pour l'appel final). Textes du kit, octobre 2026.
+ * Description: Les 9 sections, photo et captures comprises, de la page d'accueil en bandes pleine largeur (crème et beige en alternance, vert pour l'appel final). Textes du kit, octobre 2026.
  *
  * @package Potasse
  */
 ?>
 <!-- wp:group {"tagName":"section","align":"full","layout":{"type":"constrained"}} -->
-<section class="wp-block-group alignfull"><!-- wp:paragraph {"className":"is-style-manuscrit"} -->
+<section class="wp-block-group alignfull"><!-- wp:columns {"verticalAlignment":"center","align":"wide","className":"potasse-hero"} -->
+<div class="wp-block-columns alignwide are-vertically-aligned-center potasse-hero"><!-- wp:column {"verticalAlignment":"center","width":"58%"} -->
+<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:58%"><!-- wp:paragraph {"className":"is-style-manuscrit"} -->
 <p class="is-style-manuscrit">le pote qui te lâche jamais</p>
 <!-- /wp:paragraph -->
 
@@ -32,11 +34,15 @@
 
 <!-- wp:paragraph {"className":"potasse-rassurance","fontSize":"small"} -->
 <p class="potasse-rassurance has-small-font-size">Gratuit pendant le rodage · il suffit d'avoir Telegram</p>
-<!-- /wp:paragraph -->
+<!-- /wp:paragraph --></div>
+<!-- /wp:column -->
 
-<!-- wp:paragraph {"fontSize":"small"} -->
-<p class="has-small-font-size">[Ajoute ici la photo sous le velux : bloc Image, photo compressée en WebP.]</p>
-<!-- /wp:paragraph --></section>
+<!-- wp:column {"verticalAlignment":"center","width":"42%"} -->
+<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:42%"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"potasse-photo"} -->
+<figure class="wp-block-image size-full potasse-photo"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/joseph-velux.webp' ) ); ?>" alt="Joseph, le créateur de Potasse, qui sourit à la fenêtre d'un velux au-dessus d'une rivière"/></figure>
+<!-- /wp:image --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns --></section>
 <!-- /wp:group -->
 
 <!-- wp:group {"tagName":"section","align":"full","backgroundColor":"accent-6","layout":{"type":"constrained"}} -->
@@ -92,9 +98,25 @@
 <h2 class="wp-block-heading">À quoi ça ressemble</h2>
 <!-- /wp:heading -->
 
-<!-- wp:paragraph {"fontSize":"small"} -->
-<p class="has-small-font-size">[Ajoute ici 3 vraies captures verticales : une explication avec une analogie qui fait sourire, un QCM avec ses boutons A B C D et la réaction après la réponse, l'écran « stats » avec les thèmes en couleur.]</p>
-<!-- /wp:paragraph --></section>
+<!-- wp:columns {"isStackedOnMobile":false,"align":"wide","className":"potasse-captures"} -->
+<div class="wp-block-columns alignwide is-not-stacked-on-mobile potasse-captures"><!-- wp:column -->
+<div class="wp-block-column"><!-- wp:image {"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/capture-quiz.webp' ) ); ?>" alt="Capture de Telegram : Potasse envoie un QCM sur les créances douteuses, avec quatre réponses possibles"/><figcaption class="wp-element-caption">Un QCM avec mon café</figcaption></figure>
+<!-- /wp:image --></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"><!-- wp:image {"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/capture-explication.webp' ) ); ?>" alt="Capture de Telegram : Potasse explique pas à pas l'écriture d'un acompte client avec TVA"/><figcaption class="wp-element-caption">Quand j'ai pas compris un cours</figcaption></figure>
+<!-- /wp:image --></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"><!-- wp:image {"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/capture-quiz-amortissement.webp' ) ); ?>" alt="Capture de Telegram : une série de questions de quiz sur l'amortissement"/><figcaption class="wp-element-caption">5 min dans les transports</figcaption></figure>
+<!-- /wp:image --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns --></section>
 <!-- /wp:group -->
 
 <!-- wp:group {"tagName":"section","align":"full","layout":{"type":"constrained"}} -->

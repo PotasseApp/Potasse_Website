@@ -4,7 +4,7 @@ Theme URI: https://potasse.app
 Author: Joseph Beurier
 Description: Thème enfant de Twenty Twenty-Five pour le site vitrine de Potasse. Palette Earthy Garden, polices hébergées sur le site, pensé d'abord pour le mobile, aucun appel à un service extérieur.
 Template: twentytwentyfive
-Version: 0.3.2
+Version: 0.4.0
 Requires at least: 6.7
 Tested up to: 6.8
 Requires PHP: 7.4
@@ -317,5 +317,64 @@ ul.is-style-feuille-de-route > li > strong:first-child::before {
 
 	:is(.wp-block-post-content, .is-root-container) > section.wp-block-group:first-child h1 {
 		font-size: 2.125rem;
+	}
+}
+
+/* ---------------------------------------------------------------
+   Haut de l'accueil : texte à gauche, photo à droite
+   --------------------------------------------------------------- */
+
+.potasse-hero {
+	gap: clamp(1.5rem, 4vw, 3.5rem) !important;
+}
+
+.potasse-photo img {
+	width: 100%;
+	height: auto;
+	border-radius: 24px;
+}
+
+@media (max-width: 781px) {
+	/* Sur téléphone, la photo passe sous le texte, en plus petit. */
+	.potasse-photo img {
+		max-height: 320px;
+		object-fit: cover;
+	}
+}
+
+/* ---------------------------------------------------------------
+   Captures du bot dans un cadre de téléphone
+   --------------------------------------------------------------- */
+
+.potasse-captures .wp-block-image img {
+	width: 100%;
+	height: auto;
+	border: 6px solid var(--wp--preset--color--contrast);
+	border-radius: 26px;
+}
+
+.potasse-captures .wp-element-caption {
+	margin-top: 0.75rem;
+	text-align: center;
+	font-family: var(--wp--preset--font-family--caveat);
+	font-size: 1.375rem;
+	color: var(--wp--preset--color--accent-4);
+}
+
+/* Sur téléphone : on fait défiler les captures du doigt, une par une. */
+@media (max-width: 781px) {
+	.potasse-captures {
+		flex-wrap: nowrap !important;
+		overflow-x: auto;
+		scroll-snap-type: x mandatory;
+		margin-inline: calc(-1 * var(--wp--style--root--padding-left, 1.25rem)) !important;
+		padding-inline: var(--wp--style--root--padding-left, 1.25rem);
+		padding-bottom: 0.5rem;
+		scrollbar-width: none;
+	}
+
+	.potasse-captures > .wp-block-column {
+		flex: 0 0 72% !important;
+		scroll-snap-align: center;
 	}
 }
