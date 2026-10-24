@@ -4,7 +4,7 @@ Theme URI: https://potasse.app
 Author: Joseph Beurier
 Description: Thème enfant de Twenty Twenty-Five pour le site vitrine de Potasse. Palette Earthy Garden, polices hébergées sur le site, pensé d'abord pour le mobile, aucun appel à un service extérieur.
 Template: twentytwentyfive
-Version: 0.3.1
+Version: 0.3.2
 Requires at least: 6.7
 Tested up to: 6.8
 Requires PHP: 7.4
@@ -306,4 +306,16 @@ ul.is-style-feuille-de-route > li > strong:first-child::before {
 
 .wp-block-details[open] summary::after {
 	transform: translateY(-50%) rotate(45deg);
+}
+
+/* Sur téléphone : accroche un peu plus compacte, pour que la ligne rassurante
+   sous le bouton apparaisse sans faire défiler. */
+@media (max-width: 781px) {
+	:is(.wp-block-post-content, .is-root-container) > section.wp-block-group:first-child {
+		padding-top: 1rem;
+	}
+
+	:is(.wp-block-post-content, .is-root-container) > section.wp-block-group:first-child h1 {
+		font-size: 2.125rem;
+	}
 }
