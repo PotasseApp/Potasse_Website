@@ -4,7 +4,7 @@ Theme URI: https://potasse.app
 Author: Joseph Beurier
 Description: Thème enfant de Twenty Twenty-Five pour le site vitrine de Potasse. Palette Earthy Garden, polices hébergées sur le site, pensé d'abord pour le mobile, aucun appel à un service extérieur.
 Template: twentytwentyfive
-Version: 0.2.2
+Version: 0.3.0
 Requires at least: 6.7
 Tested up to: 6.8
 Requires PHP: 7.4
@@ -25,12 +25,6 @@ Text Domain: potasse
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-}
-
-/* Questions de la FAQ (accordéon) : au moins 44 px de haut, faciles à toucher. */
-.wp-block-details summary {
-	padding-block: 0.5625rem;
-	cursor: pointer;
 }
 
 /* Sur téléphone : moins d'espace vide entre l'en-tête et le titre de la page. */
@@ -74,6 +68,7 @@ Text Domain: potasse
 		padding: 0.75rem 1rem calc(0.75rem + env(safe-area-inset-bottom));
 		background: var(--wp--preset--color--base);
 		border-top: 1px solid var(--wp--preset--color--accent-3);
+		transition: transform 0.25s ease, opacity 0.25s ease;
 	}
 
 	.potasse-cta-fixe a {
@@ -90,6 +85,12 @@ Text Domain: potasse
 		text-decoration: none;
 	}
 
+	.potasse-cta-fixe.est-masque {
+		transform: translateY(110%);
+		opacity: 0;
+		pointer-events: none;
+	}
+
 	.potasse-cta-fixe a:hover,
 	.potasse-cta-fixe a:focus-visible {
 		background: var(--wp--preset--color--contrast);
@@ -99,4 +100,210 @@ Text Domain: potasse
 	body.has-potasse-cta {
 		padding-bottom: calc(76px + env(safe-area-inset-bottom));
 	}
+}
+
+/* ---------------------------------------------------------------
+   En-tête : logo + bouton
+   --------------------------------------------------------------- */
+
+.potasse-entete {
+	padding-block: 0.75rem;
+}
+
+.potasse-entete .wp-block-site-title a {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4rem;
+	font-family: var(--wp--preset--font-family--instrument-serif);
+	font-size: 1.875rem;
+	font-weight: 400;
+	line-height: 1;
+	color: var(--wp--preset--color--accent-1);
+	text-decoration: none;
+}
+
+/* La petite pousse du logo, dessinée en SVG (aucune image externe). */
+.potasse-entete .wp-block-site-title a::before {
+	content: "";
+	width: 1.5rem;
+	height: 1.5rem;
+	background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 22V11' stroke='%233E5C2C' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M12 12C12 7 8.5 4 3.5 4c0 5 3.5 8 8.5 8z' fill='%237A9B4F'/%3E%3Cpath d='M12 14c0-4.5 3-7.5 8.5-7.5 0 4.5-3 7.5-8.5 7.5z' fill='%233E5C2C'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+.potasse-entete .wp-block-button__link {
+	min-height: 40px;
+	padding: 0.5rem 1.125rem;
+	font-size: 0.9375rem;
+}
+
+/* Sur téléphone, le bouton fixe du bas suffit. */
+@media (max-width: 781px) {
+	.potasse-entete .wp-block-buttons {
+		display: none;
+	}
+}
+
+/* ---------------------------------------------------------------
+   Sections de page : rythme vertical et bandes de couleur
+   --------------------------------------------------------------- */
+
+.wp-block-post-content > section.wp-block-group {
+	margin-block: 0 !important;
+	padding-top: clamp(3rem, 8vw, 5.5rem);
+	padding-bottom: clamp(3rem, 8vw, 5.5rem);
+}
+
+.wp-block-post-content > section.wp-block-group:first-child {
+	padding-top: clamp(1.5rem, 5vw, 3.5rem);
+}
+
+/* Anciennes sections colorées qui ne sont pas en pleine largeur : cartes arrondies. */
+.wp-block-post-content > section.has-background:not(.alignfull) {
+	padding-inline: clamp(1.25rem, 5vw, 3rem);
+	border-radius: 16px;
+	margin-block: 1.5rem !important;
+}
+
+/* Petit texte rassurant sous un bouton. */
+.potasse-rassurance {
+	margin-top: 0.75rem !important;
+	color: var(--wp--preset--color--accent-4);
+}
+
+/* ---------------------------------------------------------------
+   « Comment ça marche » : 3 cartes numérotées
+   --------------------------------------------------------------- */
+
+.potasse-etapes {
+	counter-reset: etape;
+	gap: 1rem !important;
+}
+
+.potasse-etapes > .wp-block-column {
+	counter-increment: etape;
+	padding: 1.5rem;
+	border: 1px solid var(--wp--preset--color--accent-3);
+	border-radius: 16px;
+	background: var(--wp--preset--color--accent-5);
+}
+
+.potasse-etapes > .wp-block-column::before {
+	content: counter(etape);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 2.25rem;
+	height: 2.25rem;
+	margin-bottom: 0.75rem;
+	border-radius: 50%;
+	background: var(--wp--preset--color--accent-2);
+	color: var(--wp--preset--color--base);
+	font-weight: 700;
+}
+
+.potasse-etapes h3 {
+	margin-top: 0;
+}
+
+/* ---------------------------------------------------------------
+   Listes
+   --------------------------------------------------------------- */
+
+.wp-block-post-content ul.wp-block-list:not([class*="is-style-"]) > li::marker {
+	color: var(--wp--preset--color--accent-2);
+}
+
+/* Liste à coches (style « Coches »). */
+ul.is-style-coches {
+	list-style: none;
+	padding-left: 0;
+}
+
+ul.is-style-coches > li {
+	position: relative;
+	margin-block: 0.75rem;
+	padding-left: 2.25rem;
+}
+
+ul.is-style-coches > li::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 0.15em;
+	width: 1.5rem;
+	height: 1.5rem;
+	border-radius: 50%;
+	background: var(--wp--preset--color--accent-2) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3.5 8.5l3 3 6-7' fill='none' stroke='%23F5E9D7' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 70% no-repeat;
+}
+
+/* Feuille de route (style « Feuille de route ») : étiquette « bientôt » sur chaque étape. */
+ul.is-style-feuille-de-route {
+	list-style: none;
+	margin-left: 0.5rem;
+	padding-left: 0;
+	border-left: 2px solid var(--wp--preset--color--accent-3);
+}
+
+ul.is-style-feuille-de-route > li {
+	position: relative;
+	margin-block: 1.25rem;
+	padding-left: 1.5rem;
+}
+
+ul.is-style-feuille-de-route > li::before {
+	content: "";
+	position: absolute;
+	left: -0.45rem;
+	top: 0.35rem;
+	width: 0.8rem;
+	height: 0.8rem;
+	border-radius: 50%;
+	background: var(--wp--preset--color--accent-2);
+}
+
+ul.is-style-feuille-de-route > li > strong:first-child::before {
+	content: "bientôt";
+	display: table;
+	margin-bottom: 0.25rem;
+	padding: 0.1rem 0.5rem;
+	border-radius: 999px;
+	background: var(--wp--preset--color--accent-3);
+	color: var(--wp--preset--color--accent-4);
+	font-size: 0.75rem;
+	font-weight: 700;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+}
+
+/* ---------------------------------------------------------------
+   FAQ (accordéon) : un « + » vert à la place du triangle du navigateur
+   --------------------------------------------------------------- */
+
+.wp-block-details summary {
+	position: relative;
+	padding-block: 0.5625rem;
+	padding-right: 2.5rem;
+	list-style: none;
+	font-weight: 500;
+	cursor: pointer;
+}
+
+.wp-block-details summary::-webkit-details-marker {
+	display: none;
+}
+
+.wp-block-details summary::after {
+	content: "+";
+	position: absolute;
+	right: 0.25rem;
+	top: 50%;
+	transform: translateY(-50%);
+	color: var(--wp--preset--color--accent-1);
+	font-size: 1.625rem;
+	line-height: 1;
+	transition: transform 0.2s ease;
+}
+
+.wp-block-details[open] summary::after {
+	transform: translateY(-50%) rotate(45deg);
 }

@@ -6,14 +6,14 @@
  * Block Types: core/post-content
  * Post Types: page
  * Viewport width: 400
- * Description: Les 9 sections de la page d'accueil, textes du kit (octobre 2026).
+ * Description: Les 9 sections de la page d'accueil en bandes pleine largeur (crème et beige en alternance, vert pour l'appel final). Textes du kit, octobre 2026.
  *
  * @package Potasse
  */
 ?>
-<!-- wp:group {"tagName":"section","layout":{"type":"constrained"}} -->
-<section class="wp-block-group"><!-- wp:paragraph {"className":"is-style-manuscrit"} -->
-<p class="is-style-manuscrit">le pote qui te lâche jamais 🌱</p>
+<!-- wp:group {"tagName":"section","align":"full","layout":{"type":"constrained"}} -->
+<section class="wp-block-group alignfull"><!-- wp:paragraph {"className":"is-style-manuscrit"} -->
+<p class="is-style-manuscrit">le pote qui te lâche jamais</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"level":1} -->
@@ -30,17 +30,17 @@
 <!-- /wp:button --></div>
 <!-- /wp:buttons -->
 
+<!-- wp:paragraph {"className":"potasse-rassurance","fontSize":"small"} -->
+<p class="potasse-rassurance has-small-font-size">Gratuit pendant le rodage · il suffit d'avoir Telegram</p>
+<!-- /wp:paragraph -->
+
 <!-- wp:paragraph {"fontSize":"small"} -->
 <p class="has-small-font-size">[Ajoute ici la photo sous le velux : bloc Image, photo compressée en WebP.]</p>
 <!-- /wp:paragraph --></section>
 <!-- /wp:group -->
 
-<!-- wp:separator -->
-<hr class="wp-block-separator has-alpha-channel-opacity"/>
-<!-- /wp:separator -->
-
-<!-- wp:group {"tagName":"section","layout":{"type":"constrained"}} -->
-<section class="wp-block-group"><!-- wp:heading -->
+<!-- wp:group {"tagName":"section","align":"full","backgroundColor":"accent-6","layout":{"type":"constrained"}} -->
+<section class="wp-block-group alignfull has-accent-6-background-color has-background"><!-- wp:heading -->
 <h2 class="wp-block-heading">Tu relis ton cours pour la dixième fois. Tu retiens rien.</h2>
 <!-- /wp:heading -->
 
@@ -49,53 +49,61 @@
 <!-- /wp:paragraph --></section>
 <!-- /wp:group -->
 
-<!-- wp:group {"tagName":"section","backgroundColor":"accent-6","layout":{"type":"constrained"}} -->
-<section class="wp-block-group has-accent-6-background-color has-background"><!-- wp:heading -->
+<!-- wp:group {"tagName":"section","align":"full","layout":{"type":"constrained"}} -->
+<section class="wp-block-group alignfull"><!-- wp:heading -->
 <h2 class="wp-block-heading">Comment ça marche</h2>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"level":3} -->
+<!-- wp:columns {"align":"wide","className":"potasse-etapes"} -->
+<div class="wp-block-columns alignwide potasse-etapes"><!-- wp:column -->
+<div class="wp-block-column"><!-- wp:heading {"level":3} -->
 <h3 class="wp-block-heading">Il connaît tes cours.</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
 <p>Pose ta question comme à un pote : « c'est quoi la VNC ? ». Il répond à partir de fiches écrites pour le BTS CG, pas d'Internet au hasard. Et il se souvient de ce que vous venez de dire : « et en dégressif ? » suffit.</p>
-<!-- /wp:paragraph -->
+<!-- /wp:paragraph --></div>
+<!-- /wp:column -->
 
-<!-- wp:heading {"level":3} -->
+<!-- wp:column -->
+<div class="wp-block-column"><!-- wp:heading {"level":3} -->
 <h3 class="wp-block-heading">Il insiste là où tu bloques.</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>Trois QCM par jour, à 9 h, 13 h et 18 h, du lundi au samedi. Tu as juste ? La question revient dans 3 jours, puis 7, 21, 45 et 90. Tu t'es trompé ? Elle revient demain. C'est la répétition espacée, la méthode qui fait passer les cours dans la mémoire longue.</p>
-<!-- /wp:paragraph -->
+<p>Trois QCM par jour, à 9 h, 13 h et 18 h, du lundi au samedi. Juste ? La question revient dans 3 jours, puis 7, 21, 45 et 90. Faux ? Elle revient demain. C'est la répétition espacée.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:column -->
 
-<!-- wp:heading {"level":3} -->
+<!-- wp:column -->
+<div class="wp-block-column"><!-- wp:heading {"level":3} -->
 <h3 class="wp-block-heading">Tu gardes la main.</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>Écris « quiz TVA » pour réviser un thème, « stats » pour voir tes thèmes en vert, orange ou rouge, « pause 3 » pour souffler trois jours. Tu réponds aux QCM d'un clic, et le bouton « Me quizzer » sous chaque réponse te teste tout de suite sur ce que tu viens d'apprendre.</p>
-<!-- /wp:paragraph --></section>
+<p>« quiz TVA » pour réviser un thème, « stats » pour voir tes thèmes en vert, orange ou rouge, « pause 3 » pour souffler trois jours. Et le bouton « Me quizzer » sous chaque réponse te teste tout de suite.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns --></section>
 <!-- /wp:group -->
 
-<!-- wp:group {"tagName":"section","layout":{"type":"constrained"}} -->
-<section class="wp-block-group"><!-- wp:heading -->
+<!-- wp:group {"tagName":"section","align":"full","backgroundColor":"accent-6","layout":{"type":"constrained"}} -->
+<section class="wp-block-group alignfull has-accent-6-background-color has-background"><!-- wp:heading -->
 <h2 class="wp-block-heading">À quoi ça ressemble</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"fontSize":"small"} -->
-<p class="has-small-font-size">[Ajoute ici 3 vraies captures verticales, une par écran : une explication avec une analogie qui fait sourire, un QCM avec ses boutons A B C D et la réaction après la réponse, l'écran « stats » avec les thèmes en couleur.]</p>
+<p class="has-small-font-size">[Ajoute ici 3 vraies captures verticales : une explication avec une analogie qui fait sourire, un QCM avec ses boutons A B C D et la réaction après la réponse, l'écran « stats » avec les thèmes en couleur.]</p>
 <!-- /wp:paragraph --></section>
 <!-- /wp:group -->
 
-<!-- wp:group {"tagName":"section","backgroundColor":"accent-1","textColor":"base","layout":{"type":"constrained"}} -->
-<section class="wp-block-group has-base-color has-accent-1-background-color has-text-color has-background"><!-- wp:heading {"textColor":"base"} -->
-<h2 class="wp-block-heading has-base-color has-text-color">C'est pour toi si…</h2>
+<!-- wp:group {"tagName":"section","align":"full","layout":{"type":"constrained"}} -->
+<section class="wp-block-group alignfull"><!-- wp:heading -->
+<h2 class="wp-block-heading">C'est pour toi si…</h2>
 <!-- /wp:heading -->
 
-<!-- wp:list -->
-<ul class="wp-block-list"><!-- wp:list-item -->
+<!-- wp:list {"className":"is-style-coches"} -->
+<ul class="wp-block-list is-style-coches"><!-- wp:list-item -->
 <li>Tu prépares ton BTS CG, en classe ou à distance</li>
 <!-- /wp:list-item -->
 
@@ -113,33 +121,33 @@
 <!-- /wp:list --></section>
 <!-- /wp:group -->
 
-<!-- wp:group {"tagName":"section","layout":{"type":"constrained"}} -->
-<section class="wp-block-group"><!-- wp:heading -->
+<!-- wp:group {"tagName":"section","align":"full","backgroundColor":"accent-6","layout":{"type":"constrained"}} -->
+<section class="wp-block-group alignfull has-accent-6-background-color has-background"><!-- wp:heading -->
 <h2 class="wp-block-heading">Ce qui arrive</h2>
 <!-- /wp:heading -->
 
-<!-- wp:list -->
-<ul class="wp-block-list"><!-- wp:list-item -->
-<li><strong>Tout le programme :</strong> P4 à P7 s'écrivent au rythme de mes propres révisions.</li>
+<!-- wp:list {"className":"is-style-feuille-de-route"} -->
+<ul class="wp-block-list is-style-feuille-de-route"><!-- wp:list-item -->
+<li><strong>Tout le programme</strong><br>P4 à P7 s'écrivent au rythme de mes propres révisions.</li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li><strong>Bilan de la semaine :</strong> tes progrès et quoi revoir, envoyés tout seuls.</li>
+<li><strong>Bilan de la semaine</strong><br>Tes progrès et quoi revoir, envoyés tout seuls.</li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li><strong>Entraînement à l'épreuve :</strong> des séries chronométrées façon examen.</li>
+<li><strong>Entraînement à l'épreuve</strong><br>Des séries chronométrées façon examen.</li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li><strong>Tes données en Suisse :</strong> Potasse déménage chez un hébergeur suisse alimenté en énergie renouvelable.</li>
+<li><strong>Tes données en Suisse</strong><br>Potasse déménage chez un hébergeur suisse alimenté en énergie renouvelable.</li>
 <!-- /wp:list-item --></ul>
 <!-- /wp:list --></section>
 <!-- /wp:group -->
 
-<!-- wp:group {"tagName":"section","backgroundColor":"accent-5","layout":{"type":"constrained"}} -->
-<section class="wp-block-group has-accent-5-background-color has-background"><!-- wp:heading -->
-<h2 class="wp-block-heading">Pas une start-up. Juste un étudiant.</h2>
+<!-- wp:group {"tagName":"section","align":"full","layout":{"type":"constrained"}} -->
+<section class="wp-block-group alignfull"><!-- wp:heading -->
+<h2 class="wp-block-heading">Pas une startup. Juste un étudiant.</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -151,8 +159,8 @@
 <!-- /wp:paragraph --></section>
 <!-- /wp:group -->
 
-<!-- wp:group {"tagName":"section","layout":{"type":"constrained"}} -->
-<section class="wp-block-group"><!-- wp:heading -->
+<!-- wp:group {"tagName":"section","align":"full","backgroundColor":"accent-6","layout":{"type":"constrained"}} -->
+<section class="wp-block-group alignfull has-accent-6-background-color has-background"><!-- wp:heading -->
 <h2 class="wp-block-heading">Questions fréquentes</h2>
 <!-- /wp:heading -->
 
@@ -199,14 +207,14 @@
 <!-- /wp:details --></section>
 <!-- /wp:group -->
 
-<!-- wp:group {"tagName":"section","backgroundColor":"accent-6","layout":{"type":"constrained"}} -->
-<section class="wp-block-group has-accent-6-background-color has-background"><!-- wp:heading {"textAlign":"center"} -->
-<h2 class="wp-block-heading has-text-align-center">On potasse ensemble ?</h2>
+<!-- wp:group {"tagName":"section","align":"full","backgroundColor":"accent-1","textColor":"base","layout":{"type":"constrained"}} -->
+<section class="wp-block-group alignfull has-base-color has-accent-1-background-color has-text-color has-background"><!-- wp:heading {"textAlign":"center","textColor":"base"} -->
+<h2 class="wp-block-heading has-text-align-center has-base-color has-text-color">On potasse ensemble ?</h2>
 <!-- /wp:heading -->
 
 <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
-<div class="wp-block-buttons"><!-- wp:button -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="https://t.me/excomptable_bot?start=site">Démarrer sur Telegram</a></div>
+<div class="wp-block-buttons"><!-- wp:button {"backgroundColor":"base","textColor":"accent-1"} -->
+<div class="wp-block-button"><a class="wp-block-button__link has-accent-1-color has-base-background-color has-text-color has-background wp-element-button" href="https://t.me/excomptable_bot?start=site">Démarrer sur Telegram</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></section>
 <!-- /wp:group -->

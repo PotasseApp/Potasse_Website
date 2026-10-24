@@ -57,6 +57,22 @@ add_action(
 				)
 			);
 		}
+
+		// Styles de listes : coches (« C'est pour toi si… ») et feuille de route (« Ce qui arrive »).
+		register_block_style(
+			'core/list',
+			array(
+				'name'  => 'coches',
+				'label' => __( 'Coches', 'potasse' ),
+			)
+		);
+		register_block_style(
+			'core/list',
+			array(
+				'name'  => 'feuille-de-route',
+				'label' => __( 'Feuille de route', 'potasse' ),
+			)
+		);
 	}
 );
 
@@ -81,6 +97,26 @@ add_action(
 			esc_url( $url ),
 			esc_html__( 'Démarrer sur Telegram', 'potasse' )
 		);
+
+		// Masque le bouton fixe tant qu'un bouton vers le bot est déjà visible dans la page
+		// (par exemple celui du haut de l'accueil), pour ne jamais en afficher deux à la fois.
+		$js = <<<'JS'
+(function () {
+	var cta = document.querySelector('.potasse-cta-fixe');
+	if (!cta || !('IntersectionObserver' in window)) { return; }
+	var cibles = document.querySelectorAll('.wp-block-post-content a.wp-block-button__link[href*="t.me/"]');
+	if (!cibles.length) { return; }
+	var visibles = new Set();
+	var observateur = new IntersectionObserver(function (entrees) {
+		entrees.forEach(function (e) {
+			if (e.isIntersecting) { visibles.add(e.target); } else { visibles.delete(e.target); }
+		});
+		cta.classList.toggle('est-masque', visibles.size > 0);
+	});
+	cibles.forEach(function (c) { observateur.observe(c); });
+})();
+JS;
+		wp_print_inline_script_tag( $js );
 	}
 );
 

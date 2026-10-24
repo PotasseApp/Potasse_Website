@@ -39,7 +39,11 @@ Le thème fournit 4 compositions prêtes (dossier `patterns/`), rangées dans la
 4. **Réglages → Lecture** : « Une page statique » → Page d'accueil : **Accueil**.
 5. Complète les passages entre crochets [ ] et ajoute la photo et les captures.
 
-Le pied de page du site (signature et liens légaux) vient du thème (`parts/footer.html`).
+L'en-tête (logo et bouton « Démarrer ») et le pied de page (signature et liens légaux) viennent du thème (`parts/`). La page d'accueil utilise le modèle `templates/front-page.html`, sans titre de page.
+
+Styles de blocs ajoutés par le thème : **Manuscrit** (paragraphes, titres), **Coches** et **Feuille de route** (listes).
+
+**Après une mise à jour de la composition d'accueil**, le contenu déjà enregistré dans la page ne change pas : pour profiter de la nouvelle version, ouvre la page Accueil, sélectionne tous les blocs (Ctrl+A deux fois), supprime-les, puis insère à nouveau la composition « Potasse — Page d'accueil ».
 
 ## Réglages
 
