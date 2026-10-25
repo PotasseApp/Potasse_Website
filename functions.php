@@ -350,7 +350,7 @@ add_action(
 				cibles.push(s);
 			}
 		});
-		contenu.querySelectorAll('mark.potasse-surligne, .potasse-valeurs, .potasse-postit').forEach(function (e) { cibles.push(e); });
+		contenu.querySelectorAll('.potasse-postit').forEach(function (e) { cibles.push(e); });
 		document.documentElement.classList.add('potasse-anim');
 		var observateur = new IntersectionObserver(function (entrees) {
 			entrees.forEach(function (e) {
@@ -361,6 +361,36 @@ add_action(
 			});
 		}, { rootMargin: '0px 0px -10% 0px' });
 		cibles.forEach(function (c) { observateur.observe(c); });
+
+		// Tampons : chacun se pose quand il arrive au milieu de l'écran
+		// (l'un après l'autre sur téléphone, en cascade sur ordinateur où ils sont côte à côte).
+		var auMilieu = new IntersectionObserver(function (entrees) {
+			entrees.forEach(function (e) {
+				if (e.isIntersecting) {
+					e.target.classList.add('est-visible');
+					auMilieu.unobserve(e.target);
+				}
+			});
+		}, { rootMargin: '-40% 0px -40% 0px' });
+		contenu.querySelectorAll('.potasse-tampon').forEach(function (t) { auMilieu.observe(t); });
+
+		// Surligneur : il se trace au premier geste du visiteur (toucher, souris, défilement, clavier),
+		// ou au bout de 6 secondes s'il ne bouge pas.
+		var marques = contenu.querySelectorAll('mark.potasse-surligne');
+		if (marques.length) {
+			var gestes = ['pointermove', 'pointerdown', 'touchstart', 'scroll', 'keydown', 'wheel'];
+			var trace = false;
+			var tracer = function () {
+				if (trace) { return; }
+				trace = true;
+				gestes.forEach(function (g) { window.removeEventListener(g, tracer); });
+				marques.forEach(function (m) { m.classList.add('est-visible'); });
+			};
+			setTimeout(function () {
+				gestes.forEach(function (g) { window.addEventListener(g, tracer, { passive: true, once: true }); });
+			}, 300);
+			setTimeout(tracer, 6000);
+		}
 	}
 
 	/* 2. Carrousel des captures (téléphone seulement) */

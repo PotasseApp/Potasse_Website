@@ -4,7 +4,7 @@ Theme URI: https://potasse.app
 Author: Joseph Beurier
 Description: Thème enfant de Twenty Twenty-Five pour le site vitrine de Potasse. Palette Earthy Garden, polices hébergées sur le site, pensé d'abord pour le mobile, aucun appel à un service extérieur.
 Template: twentytwentyfive
-Version: 0.8.1
+Version: 0.8.2
 Requires at least: 6.7
 Tested up to: 6.8
 Requires PHP: 7.4
@@ -831,7 +831,7 @@ mark.potasse-surligne {
 	/* Le surligneur se trace de gauche à droite. */
 	.potasse-anim mark.potasse-surligne {
 		background-size: 0% 42%;
-		transition: background-size 0.9s cubic-bezier(0.6, 0, 0.3, 1) 0.35s;
+		transition: background-size 1.8s cubic-bezier(0.45, 0, 0.25, 1) 0.15s;
 	}
 
 	.potasse-anim mark.potasse-surligne.est-visible {
@@ -843,17 +843,23 @@ mark.potasse-surligne {
 		opacity: 0;
 	}
 
-	.potasse-anim .potasse-valeurs.est-visible .potasse-tampon {
-		animation: potasse-tamponner 0.55s cubic-bezier(0.3, 1.4, 0.6, 1) both;
+	.potasse-anim .potasse-tampon.est-visible {
+		animation: potasse-tamponner 0.6s cubic-bezier(0.3, 1.4, 0.6, 1) both;
+	}
+}
+
+/* Sur ordinateur, les tampons sont côte à côte : ils se posent en cascade. */
+@media (prefers-reduced-motion: no-preference) and (min-width: 782px) {
+	.potasse-anim .potasse-valeurs .wp-block-column:nth-child(2) .potasse-tampon.est-visible {
+		animation-delay: 0.3s;
 	}
 
-	.potasse-anim .potasse-valeurs.est-visible .wp-block-column:nth-child(2) .potasse-tampon {
-		animation-delay: 0.18s;
+	.potasse-anim .potasse-valeurs .wp-block-column:nth-child(3) .potasse-tampon.est-visible {
+		animation-delay: 0.6s;
 	}
+}
 
-	.potasse-anim .potasse-valeurs.est-visible .wp-block-column:nth-child(3) .potasse-tampon {
-		animation-delay: 0.36s;
-	}
+@media (prefers-reduced-motion: no-preference) {
 
 	/* Le post-it se pose. */
 	.potasse-anim .potasse-postit {
