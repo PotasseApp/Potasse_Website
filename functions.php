@@ -266,6 +266,36 @@ add_action(
 		faux: ['Raté, mais c\'est comme ça qu\'on retient.', 'Presque ! Elle reviendrait demain sur Telegram.', 'Pas grave : une erreur, c\'est une fiche qui rentre.']
 	};
 	function auHasard(liste) { return liste[Math.floor(Math.random() * liste.length)]; }
+	var messagesPostit = {
+		juste: ['Pas mal du tout. Imagine avec trois questions par jour.', 'T\'as l\'air d\'avoir révisé. On vérifie demain ?'],
+		faux: ['Toi, t\'as vraiment besoin de Potasse.', 'Bon. On va dire que c\'était un test. Le vrai, c\'est demain matin.']
+	};
+	function postit(juste) {
+		if (document.querySelector('.potasse-postit-flottant')) { return; }
+		var note = document.createElement('aside');
+		note.className = 'potasse-postit-flottant';
+		note.setAttribute('aria-label', 'Petit mot de Potasse');
+		var texte = document.createElement('p');
+		texte.textContent = auHasard(juste ? messagesPostit.juste : messagesPostit.faux);
+		var lien = document.createElement('a');
+		lien.href = 'https://t.me/excomptable_bot?start=quiz';
+		lien.rel = 'noopener';
+		lien.textContent = 'C\'est par ici →';
+		var fermer = document.createElement('button');
+		fermer.type = 'button';
+		fermer.className = 'potasse-postit-fermer';
+		fermer.setAttribute('aria-label', 'Fermer le post-it');
+		fermer.textContent = '×';
+		fermer.addEventListener('click', function () {
+			note.classList.remove('est-visible');
+			setTimeout(function () { note.remove(); }, 400);
+		});
+		note.appendChild(fermer);
+		note.appendChild(texte);
+		note.appendChild(lien);
+		document.body.appendChild(note);
+		requestAnimationFrame(function () { requestAnimationFrame(function () { note.classList.add('est-visible'); }); });
+	}
 	document.querySelectorAll('.potasse-quiz').forEach(function (quiz) {
 		var bonne = quiz.getAttribute('data-bonne');
 		var boutons = quiz.querySelectorAll('.potasse-quiz-options button');
@@ -285,6 +315,9 @@ add_action(
 				// remonte au-dessus du bouton fixe sur téléphone.
 				verdict.focus({ preventScroll: true });
 				correction.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+				// Petit post-it qui glisse dans un coin, un peu après la réponse.
+				// Sur téléphone, il attend un peu plus pour laisser lire la correction.
+				setTimeout(function () { postit(choix === bonne); }, window.matchMedia('(max-width: 781px)').matches ? 4000 : 1400);
 			});
 		});
 	});
