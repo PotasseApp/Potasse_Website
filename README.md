@@ -49,6 +49,10 @@ Styles de blocs ajoutés par le thème : **Manuscrit** (paragraphes, titres), **
 
 La question jouable de la section « Essaie, là, tout de suite » est un bloc HTML de la composition d'accueil, tiré de la banque Questions Potasse (n° 67, compte 2184). Pour la changer : modifier l'énoncé, les 4 boutons, `data-bonne` (lettre juste) et l'explication. Les petites réactions drôles sont dans `functions.php`.
 
+## Animations
+
+Gérées par le thème (`style.css` et `functions.php`), sans extension, et désactivées si le visiteur a demandé à réduire les animations : apparition douce des sections, surligneur qui se trace, tampons qui se posent, post-it qui tombe, carrousel automatique des captures sur téléphone (pause au toucher, points et bouton pause).
+
 ## Réglages
 
 - **Lien du bouton** : `POTASSE_BOT_URL` dans `functions.php` (`https://t.me/excomptable_bot?start=site`).

@@ -293,3 +293,110 @@ JS;
 		wp_print_inline_script_tag( $js );
 	}
 );
+
+/**
+ * Petites animations et carrousel des captures sur téléphone.
+ * Rien ne se joue si le visiteur a demandé à réduire les animations.
+ * Sans JavaScript, tout reste simplement visible et fixe.
+ */
+add_action(
+	'wp_footer',
+	function () {
+		$js = <<<'JS'
+(function () {
+	var reduit = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+	var contenu = document.querySelector('.wp-block-post-content');
+	if (!contenu) { return; }
+
+	/* 1. Apparitions douces, surligneur, tampons, post-it */
+	if (!reduit && 'IntersectionObserver' in window) {
+		var cibles = [];
+		contenu.querySelectorAll(':scope > section').forEach(function (s, i) {
+			if (i > 0 && !s.classList.contains('potasse-valeurs-section')) {
+				s.classList.add('potasse-apparait');
+				cibles.push(s);
+			}
+		});
+		contenu.querySelectorAll('mark.potasse-surligne, .potasse-valeurs, .potasse-postit').forEach(function (e) { cibles.push(e); });
+		document.documentElement.classList.add('potasse-anim');
+		var observateur = new IntersectionObserver(function (entrees) {
+			entrees.forEach(function (e) {
+				if (e.isIntersecting) {
+					e.target.classList.add('est-visible');
+					observateur.unobserve(e.target);
+				}
+			});
+		}, { rootMargin: '0px 0px -10% 0px' });
+		cibles.forEach(function (c) { observateur.observe(c); });
+	}
+
+	/* 2. Carrousel des captures (téléphone seulement) */
+	var piste = contenu.querySelector('.potasse-captures');
+	if (!piste) { return; }
+	var cartes = piste.querySelectorAll(':scope > .wp-block-column');
+	if (cartes.length < 2) { return; }
+	var telephone = window.matchMedia('(max-width: 781px)');
+
+	var commandes = document.createElement('div');
+	commandes.className = 'potasse-carrousel-commandes';
+	var points = [];
+	cartes.forEach(function (carte, i) {
+		var p = document.createElement('button');
+		p.type = 'button';
+		p.className = 'potasse-carrousel-point';
+		p.setAttribute('aria-label', 'Capture ' + (i + 1));
+		p.addEventListener('click', function () { arreter(); allerA(i); });
+		commandes.appendChild(p);
+		points.push(p);
+	});
+	var pause = document.createElement('button');
+	pause.type = 'button';
+	pause.className = 'potasse-carrousel-pause';
+	commandes.appendChild(pause);
+	piste.insertAdjacentElement('afterend', commandes);
+
+	var actuel = 0, minuterie = null, enVue = false, arrete = reduit;
+	function majPoints() {
+		points.forEach(function (p, i) { p.setAttribute('aria-current', i === actuel ? 'true' : 'false'); });
+		pause.textContent = arrete ? '▶' : '❚❚';
+		pause.setAttribute('aria-label', arrete ? 'Faire défiler les captures' : 'Mettre en pause le défilement');
+	}
+	function allerA(i) {
+		actuel = (i + cartes.length) % cartes.length;
+		var carte = cartes[actuel];
+		piste.scrollTo({ left: carte.offsetLeft - (piste.clientWidth - carte.clientWidth) / 2, behavior: reduit ? 'auto' : 'smooth' });
+		majPoints();
+	}
+	function lancer() {
+		clearInterval(minuterie);
+		if (!arrete && enVue && telephone.matches) {
+			minuterie = setInterval(function () { allerA(actuel + 1); }, 4500);
+		}
+	}
+	function arreter() { arrete = true; clearInterval(minuterie); majPoints(); }
+
+	pause.addEventListener('click', function () { arrete = !arrete; majPoints(); lancer(); });
+	['pointerdown', 'touchstart', 'wheel'].forEach(function (ev) {
+		piste.addEventListener(ev, arreter, { passive: true });
+	});
+	piste.addEventListener('scroll', function () {
+		var milieu = piste.scrollLeft + piste.clientWidth / 2, proche = 0, ecart = Infinity;
+		cartes.forEach(function (c, i) {
+			var d = Math.abs(c.offsetLeft + c.clientWidth / 2 - milieu);
+			if (d < ecart) { ecart = d; proche = i; }
+		});
+		if (proche !== actuel) { actuel = proche; majPoints(); }
+	}, { passive: true });
+	if ('IntersectionObserver' in window) {
+		new IntersectionObserver(function (entrees) {
+			enVue = entrees[0].isIntersecting;
+			lancer();
+		}, { threshold: 0.6 }).observe(piste);
+	}
+	telephone.addEventListener('change', lancer);
+	majPoints();
+})();
+JS;
+		wp_print_inline_script_tag( $js );
+	}
+);
